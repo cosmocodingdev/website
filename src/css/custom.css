@@ -30,13 +30,23 @@
 }
 
 .hero {
-  background: linear-gradient(150deg, var(--ifm-color-primary-lighter), var(--ifm-color-primary), var(--ifm-color-primary-darker));
+  background: linear-gradient(150deg, var(--ifm-color-primary-lighter), var(--ifm-color-primary), var(--ifm-color-primary-lighter));
+  padding: 2rem 0 !important;
+}
+
+[data-theme='dark'] .hero {
+  background: linear-gradient(45deg, var(--ifm-color-primary-darker), var(--ifm-color-primary), var(--ifm-color-primary-darker));
 }
 
 .footer {
   --ifm-footer-background-color: #5c4953;
+  padding: 16px var(--ifm-footer-padding-horizontal);
 }
 
 [data-theme='dark'] .footer {
   --ifm-footer-background-color: #2b1c24;
+}
+
+.footer__title {
+  margin-bottom: 8px !important;
 }
