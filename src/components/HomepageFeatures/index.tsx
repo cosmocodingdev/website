@@ -4,52 +4,40 @@ import styles from './styles.module.css';
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
-  description: JSX.Element;
+  embedCode: string;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
-    description: (
-      <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
-      </>
-    ),
+    title: 'My Latest Video',
+    embedCode: 'P8accXNcwjs?si=d_4fX9uJouuDV5Ub',
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
-    description: (
-      <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
-      </>
-    ),
+    title: 'Popular now',
+    embedCode: '7DKv5H5Frt0?si=MlUv-0GtGHakWHbC',
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
-      </>
-    ),
+    title: "Other creator's content",
+    embedCode: 'UMeKxBcNBE0?si=ELvXqkCfgYB2l4xj',
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+const iFrameStyle = {
+  width: '100%',
+  aspectRatio: 'calc(16/9)',
+  borderRadius: '8px'
+};
+
+function Feature({title, embedCode}: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
       <div className="text--center padding-horiz--md">
         <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
+        <iframe src={"https://www.youtube-nocookie.com/embed/" + embedCode}
+                title={title} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                style={iFrameStyle}>
+                </iframe>
       </div>
     </div>
   );
